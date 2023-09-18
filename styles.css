@@ -1,0 +1,255 @@
+
+      /* Estilos Base, siguiendo el patron de mobile first
+        por lo tanto estos estilos son para mobile  primero
+      */
+
+      /* 
+        resetear estilos
+        margin: 0 quitar margin a todos los elementos
+        padding: 0 quitar padding a todos los elementos
+        box-sizing: border-box = acomodar correctamente las dimensiones de las cajas
+        https://midu.dev/que-es-y-para-que-sirve-box-sizing-border-box/#:~:text=El%20valor%20border%2Dbox%20en%20el%20box%2Dsizing%20hace%20que,y%20no%20lo%20suman%20posteriormente.
+       */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      /* 
+        poner el color del texto en el body, hace que todos los textos de la pagina
+        usen ese mismo color
+       */
+      body {
+        background-color: gray;
+        color: white;
+      }
+
+      .bodyRow {
+        width: 100%;
+        padding: 1em;
+      }
+
+      .separator {
+        width: 100%;
+        border-bottom: 10px solid #222;
+      }
+
+      .imageContainer {
+        width: 90%;
+        margin: 0 auto;
+      }
+
+      .imageContainer img {
+        width: 100%;
+      }
+
+      .text-container {
+        text-align: center;
+        padding: 2rem;
+      }
+
+      /* el uso de z-index pone a la clase .menuNav por encima de los demas elementos */
+      .menuNav {
+        display: block;
+        width: 100%;
+        background-color: #333;
+        position: fixed;
+        top: 0;
+        z-index: 5;
+      }
+
+      /* cambiar el display a inline-block para 
+        poder posicionar el elemento a un lado de otros
+        y despues cambiar su propiedad width
+      */
+      .logo {
+        font-size: 2.2em;
+        display: inline-block;
+        padding: 0 1em;
+      }
+
+      /* cambiar el display a inline-block para 
+        poder posicionar el elemento a un lado de otros
+        margin-left: auto sirve para poder empujar el elemento hacia la izquierda
+        atraves de todo el espacio disponible
+      */
+      .menuNav ul {
+        display: inline;
+        margin-left: auto;
+      }
+
+      .menuNav ul li {
+        display: inline;
+      }
+
+      .menuNav li a {
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        padding: 20px 10px;
+        display: inline-block;
+        font-size: 1.2em;
+        color: #eee;
+      }
+
+      .menuNav li:hover a {
+        background-color: #444;
+      }
+
+      .logo {
+        width: 50%;
+      }
+
+      /* Imagen de fondo de la seccion 
+        height: 100vh establece la altura de la seccion como todo la altura disponible
+                del dispositivo
+        background: url('url') rgba(0, 0, 0, 0.3); pone la imagen como el fondo usando la url
+                    y el rgba(0, 0, 0, 0.3); pone oscurece un poco la imagen para que se vea bien
+                    el texto blanco
+        background-blend-mode: multiply permite que el efecto de oscurecer la imagen se vea bien
+      */
+      .bg-image {
+        height: 100vh;
+        width: 100%;
+        position: relative;
+        background: url("https://fastly.picsum.photos/id/43/1280/831.jpg?hmac=glK-rQ0ppFClW-lvjk9FqEWKog07XkOxJf6Xg_cU9LI")
+          rgba(0, 0, 0, 0.3);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        background-blend-mode: multiply;
+      }
+
+      /* 
+          position: relative = hacemos el elmento relativo para poder mover
+                    la seccion a travez de la imagen de fondo
+          top: 45vh = empujamos el elemento desde arriba para llegar casi a la mitad
+                      si 100vh es igual a toda la altura de la  pantalla, entonces
+                      45vh es igual a un poco menos de la altura de la pantalla 
+       */
+      .hero-text-container {
+        position: relative;
+        width: 60%;
+        margin: 0 auto;
+        text-align: center;
+        top: 45vh;
+        
+      }
+
+      .hero-text-container h1 {
+        font-size: 4rem;
+      }
+
+      .hero-text-container h2 {
+        font-size: 2rem;
+        margin: 1em 0;
+      }
+
+      .hero-text-container p {
+        font-size: 1.5rem;
+        margin: 1em 0;
+      }
+
+      /* 
+          background: none = quitar el relleno del boton
+          cursor:pointer = hace que el mouse sobre el elemento se vea como una manita;
+          outline: none =  quita los bordes autmaticos que pone el navegador cuando se 
+                           le da click
+       */
+      .btn {
+        width: 150px;
+        text-align: center;
+        background: none;
+        border: 2px solid white;
+        color: white;
+        padding: 1em 1.3em;
+        background: none;
+        outline: none;
+        cursor: pointer;
+        font-size: 1em;
+        transition: all 400ms ease;
+      }
+
+      .btn:hover,
+      .btn:focus {
+        border-color: #cb72aa;
+        color: #fff;
+      }
+
+      /* llenar el boton desde dentro utilizando su sombra interna
+        mas info: https://lenguajecss.com/css/sombras/box-shadow/#:~:text=La%20propiedad%20box%2Dshadow&text=Se%20denominan%20sombras%20sobre%20cajas,que%20con%20algunos%20a%C3%B1adidos%20interesantes.
+       */
+      .fill:hover,
+      .fill:focus {
+        box-shadow: inset 0 0 0 2em #cb72aa;
+      }
+
+      main {
+        margin-top: 1em;
+      }
+
+      footer {
+        width: 100%;
+        text-align: center;
+        background-color: #333;
+        padding: 3rem;
+        font-size: 2rem;
+      }
+
+      /* estos estilos se aplican para tablets hacia arriba */
+      @media screen and (min-width: 1000px) {
+        /* 
+          overflow:hidden = hace que si los hijos de este contenedor 
+                            exceden las dimensiones del mismo, se oculten
+                        mas info: https://keepcoding.io/blog/propiedad-overflow-en-css/#:~:text=Esta%20es%20la%20opci%C3%B3n%20por,de%20su%20contenedor%20se%20oculte.
+          */
+        .bodyRow {
+          max-height: 1000px;
+          overflow: hidden;
+        }
+
+        /* 
+          float:left =  hace que los elementos floten a una direccion lo que
+                        hace que se vean como en columnas, 
+                        es como usar  position absolute pero sin cambiar 
+                        la posicion de los elementos.
+                    mas info: https://developer.mozilla.org/es/docs/Web/CSS/float
+          !IMPORTANTE :
+          Esta forma de hacerlo ya no es la correcta,hay mejores formas de hacerlo
+          que veremos el lunes
+                                
+        */
+        .imageContainer,
+        .text-container {
+          width: 50%;
+          float: left;
+        }
+
+        /* 
+            max-height: 350px = nos aseguramos de que las imagenes no crezcan 
+                                demasiado
+            object-fit: contain = nos permite manipular la altura de una imagen
+                                  sin distorsionar la imagen para que no se vea 
+                                  aplastada o deforme .
+                          mas info: https://developer.mozilla.org/es/docs/Web/CSS/object-fit
+         */
+        .imageContainer img {
+          width: 100%;
+          max-height: 350px;
+          object-fit: contain;
+        }
+
+        .text-container {
+          /* width: 80%; */
+          padding: 2rem;
+          position: relative;
+          top: 125px;
+          text-align: left;
+          color:black;
+        }
+
+        .logo {
+          width: 80%;
+        }
+      }
